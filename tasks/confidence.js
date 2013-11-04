@@ -14,9 +14,13 @@ module.exports = function (grunt) {
 
   var store = new Confidence.Store();
 
+  var amdWrapper = "define([], function () { var config = <%= configDocument %> ; return config; });";
+
+
   grunt.registerMultiTask('confidence', 'Compile confidence configuration files', function () {
     var options = this.options({
-      criteria: {}
+      criteria: {},
+      amd: false
     });
 
     var output = {};
@@ -25,6 +29,7 @@ module.exports = function (grunt) {
 
     this.files.forEach(function (f) {
       f.src.filter(function (filepath) {
+        grunt.log.warn('Source file "' + filepath + '" not found.');
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
@@ -46,6 +51,16 @@ module.exports = function (grunt) {
       });
 
       var compiledConfig = JSON.stringify(output);
+
+      //Check to see if this has to be AMD Wrapped
+      if (options.amd === true) {
+        compiledConfig = grunt.template.process(amdWrapper, {
+          data: {
+            configDocument: compiledConfig
+          }
+        });
+      }
+
 
       grunt.file.write(f.dest, compiledConfig);
 
