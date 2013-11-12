@@ -16,6 +16,7 @@ module.exports = function (grunt) {
 
   var amdWrapper = "define([], function () { var config = <%= configDocument %> ; return config; });";
 
+  var commonJSWrapper = "module.exports = <%= configDocument %> ;";
 
   grunt.registerMultiTask('confidence', 'Compile confidence configuration files', function () {
     var options = this.options({
@@ -54,6 +55,13 @@ module.exports = function (grunt) {
       //Check to see if this has to be AMD Wrapped
       if (options.amd === true) {
         compiledConfig = grunt.template.process(amdWrapper, {
+          data: {
+            configDocument: compiledConfig
+          }
+        });
+      }
+      if (options.commonJS === true) {
+        compiledConfig = grunt.template.process(commonJSWrapper, {
           data: {
             configDocument: compiledConfig
           }
