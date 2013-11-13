@@ -1,7 +1,7 @@
 {
   "name": "grunt-confidence",
   "description": "Compile confidence configuration files fron grunt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://asilluron.github.io/grunt-confidence",
   "author": {
     "name": "Andrew Gonzalez-Silluron",
@@ -14,10 +14,12 @@
   "bugs": {
     "url": "https://github.com/asilluron/grunt-confidence/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://asilluron.github.io/grunt-confidence/blob/master/LICENSE-MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://asilluron.github.io/grunt-confidence/blob/master/LICENSE-MIT"
+    }
+  ],
   "main": "Gruntfile.js",
   "engines": {
     "node": ">= 0.8.0"
