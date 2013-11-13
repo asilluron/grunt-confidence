@@ -91,3 +91,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 _v0.0.1_
+_v0.1.0_
