@@ -1,7 +1,7 @@
 {
   "name": "grunt-confidence",
   "description": "Compile confidence configuration files fron grunt",
-  "version": "0.1.2",
+  "version": "v0.0.2",
   "homepage": "http://asilluron.github.io/grunt-confidence",
   "author": {
     "name": "Andrew Gonzalez-Silluron",
