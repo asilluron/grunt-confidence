@@ -44,7 +44,7 @@ module.exports = function (grunt) {
           store.load(configDocument);
           output = store.get("/", criteria);
         } else {
-          grunt.log.warn('Could not validate document as a valid confidence document');
+          grunt.log.error('Error parsing document:\n',JSON.stringify(err));
         }
 
 
